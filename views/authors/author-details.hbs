@@ -1,0 +1,41 @@
+<div class='main__container--authors-create'>
+  <div class='main__container--authors--create-header'>
+    <h1>Author Details</h1>
+  </div>
+
+  <div class='main__container--authors-details'>
+    <label>Name:</label>
+    <div>{{author.name}}</div>
+
+    <label>Email:</label>
+    <div>{{author.email}}</div>
+
+    <label>Gender:</label>
+    <div>{{author.gender}}</div>
+
+    <label>Catch Phrase:</label>
+    <div>{{author.catchPhrase}}</div>
+
+    <label>Books:</label>
+    <div>
+      <ul>
+        {{#each author.books}}
+          <li><a href='/books/{{this._id}}'>{{this.title}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <label>Picture:</label>
+    <div><img src='{{author.pictureUrl}}' /></div>
+
+    <button
+      type='button'
+      onclick="document.location.href = '/authors/create/{{author._id}}'"
+    >Edit</button>
+    <button
+      type='button'
+      onclick="if(confirm('Are you sure you want to delete?')) document.location.href = '/authors/delete/{{author._id}}'"
+    >Delete</button>
+    <button type='button' onclick="document.location.href = '/authors'">Go Back</button>
+  </div>
+</div>

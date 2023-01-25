@@ -1,0 +1,42 @@
+<div class='main__container-books'>
+  <div class='main__container--books-header'>
+    <h1>THE BOOKS COLLECTION</h1>
+    <h2><a href='/books/create'>Add New</a></h2>
+  </div>
+  <div class='main__container--books-list'>
+    {{#each books}}
+      <div class='main__container--books--list-item'>
+        <div>
+          <img src='{{this.pictureUrl}}' alt='{{this.title}}' />
+        </div>
+        <div>
+          {{this.title}}
+        </div>
+        <div>
+          {{#each this.authors}} {{this.name}} <br /> {{/each}}
+        </div>
+        <div>
+          {{this.format}}
+          ,
+          {{this.year}}
+        </div>
+
+        <div>
+          <div>
+            <a href='/books/{{this._id}}'>Details</a>
+          </div>
+          <div>
+            <a href='/books/create/{{this._id}}'>Edit</a>
+          </div>
+          <div>
+            <a
+              href='/books/delete/{{this._id}}'
+              onclick="if(!confirm('Are you sure you want to delete?')) event.preventDefault()"
+            >Delete</a>
+          </div>
+
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

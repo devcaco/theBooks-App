@@ -1,0 +1,49 @@
+<div class='main__container--books-create'>
+  <div class='main__container--books--create-header'>
+    <h1>Book Details</h1>
+  </div>
+
+  <div class='main__container--books-details'>
+    <label>Title:</label>
+    <div>{{book.title}}</div>
+
+    <label>Genre:</label>
+    <div>{{book.genre}}</div>
+
+    <label>Author(s):</label>
+    <div>
+        {{#each book.authors}}
+          <li>{{this.name}}</li>
+        {{/each}}
+    </div>
+
+    <label>Year:</label>
+    <div>
+      {{book.year}}
+    </div>
+
+    <label>ASIN:</label>
+    <div>
+      {{book.asin}}
+    </div>
+    <label>Description:</label>
+    <div>
+      {{book.description}}
+    </div>
+
+    <label>Picture:</label>
+    <div>
+      <img src='{{book.pictureUrl}}' alt='{{this.title}}' />
+    </div>
+
+    <button
+      type='button'
+      onclick="document.location.href = '/books/create/{{book._id}}'"
+    >Edit</button>
+    <button
+      type='button'
+      onclick="if(confirm('Are you sure you want to delete?')) document.location.href = '/books/delete/{{book._id}}'"
+    >Delete</button>
+    <button type='button' onclick="document.location.href = '/books'">Go Back</button>
+  </div>
+</div>

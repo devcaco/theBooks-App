@@ -1,0 +1,95 @@
+<div class='main__container--books-create'>
+  <div class='main__container--books--create-header'>
+    <h1>{{formData.title}}</h1>
+  </div>
+
+  <form
+    action='{{formData.action}}'
+    method='post'
+    id='booksForm'
+    onsubmit='return booksForm(event);'
+  >
+    <input
+      type='hidden'
+      name='authors'
+      id='authors'
+      value='{{book.theAuthors}}'
+      required
+    />
+    <label for='title'>Title:</label>
+    <input
+      type='text'
+      name='title'
+      id='title'
+      required
+      value='{{book.title}}'
+    />
+
+    <label for='authorsList'>Author(s):</label>
+    <div class='main__container--books--create-authors'>
+      <select name='authorsList' id='authorsList'>
+        <option value='' style='text-align: center;'>---Select from List---</option>
+        <option value='' style='text-align: center;'></option>
+        {{#each authors}}
+          <option value='{{this._id}}'>{{this.name}}</option>
+        {{/each}}
+      </select>
+      <button type='button' onclick='return handleAuthorsList();'> + </button>
+    </div>
+
+    <label for=''></label>
+    <div class='main__container--books--create--authors-container'>
+      {{#each book.authors}}
+        <div
+          class='main__container--books--create--authors--container-item'
+          data='{{this._id}},{{this.name}},{{this.index}}'
+        >
+          <div>{{this.name}}</div>
+          <button
+            type='button'
+            onclick="handleAuthorsList('{{this._id}}', this);"
+          > remove </button>
+        </div>
+      {{/each}}
+    </div>
+    <label for='occupation'>Genre:</label>
+    <input type='text' name='genre' id='genre' value='{{book.genre}}' />
+
+    <label for='catchPhrase'>Year:</label>
+    <input type='number' name='year' id='year' value='{{book.year}}' />
+
+    <label for='format'>Format:</label>
+    <select name='format' id='format'>
+      <option value='Paperback'>Paper Back</option>
+      <option value='Hardcover'>Hard Cover</option>
+      <option value='Ebook'>E-Book</option>
+      <option value='Audiobook'>Audio Book</option>
+    </select>
+
+    <label for='catchPhrase'>ASIN:</label>
+    <input type='text' name='asin' id='asin' value='{{book.asin}}' />
+
+    <label for='pictureUrl'>Picture URL:</label>
+    <input
+      type='text'
+      name='pictureUrl'
+      id='pictureUrl'
+      value='{{book.pictureUrl}}'
+    />
+
+    <label for='catchPhrase'>Description:</label>
+    <textarea
+      name='description'
+      id='description'
+      cols='30'
+      rows='10'
+    >{{book.description}}</textarea>
+
+    <button type='submit'>{{formData.btnSubmit}}</button>
+    <button
+      type='button'
+      onclick="document.location.href = '/books'"
+    >Cancel</button>
+
+  </form>
+</div>

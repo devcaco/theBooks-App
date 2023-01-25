@@ -1,0 +1,41 @@
+<div class='main__container--authors-create'>
+  <div class='main__container--authors--create-header'>
+    <h1>{{formData.title}}</h1>
+  </div>
+
+  <form action='{{formData.action}}' method='post' id='authorForm'>
+    <label for='name'>Name:</label>
+    <input type='text' name='name' id='name' required value='{{author.name}}' />
+
+    <label for='genre'>Email:</label>
+    <input type='email' name='email' id='email' value='{{author.email}}' />
+
+    <label for='Gender'>Gender:</label>
+    <select name='gender' id='gender'>
+      <option value='Female'>Female</option>
+      <option value='Male'>Male</option>
+    </select>
+
+    <label for='catchPhrase'>Catch Phrase:</label>
+    <input
+      type='text'
+      name='catchPhrase'
+      id='catchPhrase'
+      value='{{author.catchPhrase}}'
+    />
+
+    <label for='cast'>Picture URL:</label>
+    <input
+      type='text'
+      name='pictureUrl'
+      id='pictureUrl'
+      value='{{author.pictureUrl}}'
+    />
+
+    <button type='submit'>{{formData.btnSubmit}}</button>
+    <button
+      type='button'
+      onclick="document.location.href = '/authors'"
+    >Cancel</button>
+  </form>
+</div>

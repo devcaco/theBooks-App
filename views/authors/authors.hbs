@@ -1,0 +1,38 @@
+<div class='main__container-authors'>
+  <div class='main__container--authors-header'>
+    <h1>THE AUTHORS LIST</h1>
+    <h2><a href='/authors/create'>Add New</a></h2>
+    <div>
+    </div>
+  </div>
+  <div class='main__container--authors-list'>
+    {{#each authors}}
+      <div class='main__container--authors--list-item'>
+        <div>
+          {{this.name}}
+        </div>
+        <div>
+          {{this.catchPhrase}}
+        </div>
+        <div>
+          <img src='{{this.pictureUrl}}' alt='{{this.name}}' />
+        </div>
+        <div>
+          <div>
+            <a href='/authors/{{this._id}}'>Details</a>
+          </div>
+          <div>
+            <a href='/authors/create/{{this._id}}'>Edit</a>
+          </div>
+          <div>
+            <a
+              href='/authors/delete/{{this._id}}'
+              onclick="if(!confirm('Are you sure you want to delete?')) event.preventDefault()"
+            >Delete</a>
+          </div>
+
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

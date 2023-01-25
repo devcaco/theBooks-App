@@ -12,12 +12,14 @@ a {
 }
 
 .main__container {
-  width: 700px;
+  width: 90vw;
   margin: 0 auto;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41); 
+box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
 }
 
 .main__container nav {
@@ -71,21 +73,21 @@ a {
   padding-top: 20px;
 }
 
-.main__container--movies-list,
-.main__container--celebs-list {
+.main__container--authors-list,
+.main__container--books-list {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
 }
 
-.main__container--movies-header,
-.main__container--celebs-header {
+.main__container--authors-header,
+.main__container--books-header {
   border-bottom: 1px solid #000;
   margin-bottom: 40px;
 }
 
-.main__container--movies--list-item,
-.main__container--celebs--list-item {
+.main__container--authors--list-item,
+.main__container--books--list-item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -96,33 +98,33 @@ a {
   min-height: 150px;
 }
 
-.main__container--movies--list-item > div:first-child,
-.main__container--celebs--list-item > div:first-child {
+.main__container--authors--list-item > div:first-child,
+.main__container--books--list-item > div:nth-child(2) {
   font-weight: bold;
   font-size: 20px;
 }
 
-.main__container--celebs--list-item > div:nth-child(3) {
+.main__container--books--list-item > div:nth-child(3) {
   font-style: italic;
   color: rgb(112, 111, 111);
 }
 
-.main__container--movies--list-item > div:nth-child(4),
-.main__container--celebs--list-item > div:nth-child(4) {
+.main__container--authors--list-item > div:nth-child(4),
+.main__container--books--list-item > div:nth-child(5) {
   display: flex;
   height: 30px;
   align-items: center;
   background-color: rgb(117, 117, 117);
 }
-.main__container--movies--list-item > div:nth-child(4) > div,
-.main__container--celebs--list-item > div:nth-child(4) > div {
+.main__container--authors--list-item > div:nth-child(4) > div,
+.main__container--books--list-item > div:nth-child(5) > div {
   flex: 1;
 }
 
-.main__container--movies-create form,
-.main__container--movies-details,
-.main__container--celebs-details,
-.main__container--celebs-create form {
+.main__container--authors-create form,
+.main__container--authors-details,
+.main__container--books-details,
+.main__container--books-create form {
   display: grid;
   grid-template-columns: auto auto;
   width: 400px;
@@ -130,22 +132,75 @@ a {
   margin-top: 50px;
 }
 
-.main__container--celebs-details label,
-.main__container--movies-details label {
+.main__container--books-details label,
+.main__container--authors-details label {
   text-align: left;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.main__container--movies-details div, 
-.main__container--celebs-details div {
+.main__container--authors-details div,
+.main__container--books-details div,
+.author__form label {
   text-align: left;
   margin-left: 50px;
 }
-.main__container--movies-create form button,
-.main__container--movies-details button,
-.main__container--celebs-details button,
-.main__container--celebs-create form button {
+.main__container--authors-create form button,
+.main__container--authors-details button,
+.main__container--books-details button, 
+.main__container--books-create form button {
   grid-column-start: 1;
   grid-column-end: 3;
+}
+
+.btn {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.main__container-authors img,
+.main__container--authors-create img,
+.main__container--books-create img {
+  height: 200px;
+}
+.main__container-books img {
+  height: 100px;
+}
+
+.main__container--books--create-authors {
+  display: flex;
+  gap: 5px;
+}
+
+.main__container--books--create-authors > :first-child {
+  flex: 3;
+}
+.main__container--books--create-authors > button {
+  width: 50px;
+}
+
+.main__container-index img {
+  height: 200px;
+}
+
+.main__container--books--create--authors-container {
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  justify-content: start;
+  align-items: flex-start;
+  border: 1px solid #000;
+  padding: 20px;
+  width: 100%;
+}
+
+.main__container--books--create--authors--container-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.main__container--books--create--authors--container-item > button {
+  border: 0;
+  padding: 5px;
 }
